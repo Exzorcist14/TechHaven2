@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Магазин</title>
+    <link rel="icon" type="image/png" href="/resources/images/logo/ComputerFavicon.png">
+    <link rel="stylesheet" href="/resources/styles/style.css">
+    <link rel="stylesheet" href="/resources/styles/catalog.css">
+    <link rel="stylesheet" href="/resources/styles/cart.css">
+    <link rel="stylesheet" href="/resources/styles/notifications.css">
+    <link rel="stylesheet" href="/resources/styles/footer.css">
+    <script src="https://kit.fontawesome.com/563ce4d2d7.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="body-grid">
+    <div class="it-header">
+        <div th:insert="~{header :: header}"></div>
+    </div>
+
+    <div class="it-main">
+        <main>
+            <section>
+                <h2 align="center">Каталог</h2>
+
+                <div class="catalog-container">
+                    <div class="catalog-type">
+                        <button id="GPU" onclick="showCategory('gpu-container')">Видеокарты</button>
+                        <button id="CPU" onclick="showCategory('cpu-container')">Процессоры</button>
+                        <button id="RAM" onclick="showCategory('ram-container')">ОЗУ</button>
+                    </div>
+                </div>
+
+                <div class="catalog">
+                    <div class="productsContainer" id="gpu-container">
+                        <div class="products" id="gpu-products">
+
+                            <div th:each="workshop : ${workshops}" class="product" th:if="${workshop.product.category eq 'gpu'}">
+                                <img th:src="@{${'/resources/images/catalog/' + workshop.product.title + '.png'}}"
+                                     alt="Фото товара" width="150px" height="170px">
+
+                                <h2 th:text="${workshop.product.title}" class="productName"></h2>
+
+                                <div>
+                                    <div style="display: flex; flex-direction: row">
+                                        <p>Цена:&nbsp;</p>
+                                        <p th:text="${workshop.product.cost}" class="productCost"></p>
+                                        <p>&nbsp;₽</p>
+                                    </div>
+
+                                    <div style="display: flex; flex-direction: row">
+                                        <p>Осталось:&nbsp;</p>
+                                        <p th:text="${workshop.count}"></p>
+                                    </div>
+                                </div>
+
+                                <button class="purchase" onclick="addToCart(this)">Купить</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="productsContainer" id="cpu-container">
+                        <div class="products">
+
+                            <div th:each="workshop : ${workshops}" class="product" th:if="${workshop.product.category eq 'cpu'}">
+
+                                <img th:src="@{${'/resources/images/catalog/' + workshop.product.title + '.png'}}"
+                                     alt="Фото товара" width="150px" height="170px">
+
+                                <h2 th:text="${workshop.product.title}" class="productName"></h2>
+
+                                <div>
+                                    <div style="display: flex; flex-direction: row">
+                                        <p>Цена:&nbsp;</p>
+                                        <p th:text="${workshop.product.cost}" class="productCost"></p>
+                                        <p>&nbsp;₽</p>
+                                    </div>
+
+                                    <div style="display: flex; flex-direction: row">
+                                        <p>Осталось:&nbsp;</p>
+                                        <p th:text="${workshop.count}"></p>
+                                    </div>
+                                </div>
+
+                                <button class="purchase" onclick="addToCart(this)">Купить</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="productsContainer" id="ram-container">
+                        <div class="products">
+                            <div th:each="workshop : ${workshops}" class="product" th:if="${workshop.product.category eq 'ram'}">
+
+                                <img th:src="@{${'/resources/images/catalog/' + workshop.product.title + '.png'}}"
+                                     alt="Фото товара" width="150px" height="170px">
+
+                                <h2 th:text="${workshop.product.title}" class="productName"></h2>
+
+                                <div>
+                                    <div style="display: flex; flex-direction: row">
+                                        <p>Цена:&nbsp;</p>
+                                        <p th:text="${workshop.product.cost}" class="productCost"></p>
+                                        <p>&nbsp;₽</p>
+                                    </div>
+
+                                    <div style="display: flex; flex-direction: row">
+                                        <p>Осталось:&nbsp;</p>
+                                        <p th:text="${workshop.count}"></p>
+                                    </div>
+                                </div>
+
+                                <button class="purchase" onclick="addToCart(this)">Купить</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="cart">
+                    <h2 align="center">Корзина</h2>
+
+                    <ul class="cart-items" id="cart-items">
+
+                    </ul>
+
+                    <div class="create-order">
+                        <a onclick="sendRequest()"><button id="purchase" class="purchase">Оформить заказ</button></a>
+
+                        <script>
+                            document.getElementById("purchase").addEventListener("click", function(event){
+                                event.preventDefault();
+                            });
+                        </script>
+                    </div>
+                </div>
+            </section>
+
+            <script src="/resources/scripts/catalog.js"></script>
+            <script src="/resources/scripts/cart.js"></script>
+        </main>
+    </div>
+
+    <div class="it-sidebar">
+        <sidebar>
+        </sidebar>
+    </div>
+
+    <div class="it-aside">
+    </div>
+
+    <div class="it-footer">
+        <div th:insert="~{footer :: footer}"></div>
+    </div>
+</body>
+</html>

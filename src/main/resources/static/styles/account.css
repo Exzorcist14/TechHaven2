@@ -1,0 +1,78 @@
+.about {
+    margin-left: 5%;
+    margin-bottom: 25px;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 25px;
+    min-height: 300px;
+}
+
+.accountImage {
+    border-radius: 15px;
+    max-width: 100%;
+    height: auto;
+    align-self: center;
+}
+
+.top {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.top h2 {
+    margin-top: 0;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+}
+
+.btn button {
+    background: #565656;
+    color: #dedede;
+    font-family: 'Droid Sans Mono', cursive;
+    padding: 12px 27px 12px 27px;
+    border-radius: 15px;
+    transition: 0.35s;
+}
+
+.btn button:hover {
+    background: #868686;
+}
+
+.order-history {
+    text-align: center;
+}
+
+.order-history h2 {
+    margin-top: 0;
+}
+
+.order-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.order-item {
+    margin-bottom: 20px;
+}
+
+.order-number {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.product-list {
+    margin-top: 10px;
+    list-style-type: none;
+    padding: 0;
+}
+
+.product-item {
+    margin-bottom: 10px;
+}

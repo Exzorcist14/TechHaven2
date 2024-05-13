@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заказ</title>
+    <link rel="icon" type="image/png" href="/resources/images/logo/ComputerFavicon.png">
+    <link rel="stylesheet" href="/resources/styles/style.css">
+    <link rel="stylesheet" href="/resources/styles/order.css">
+    <link rel="stylesheet" href="/resources/styles/notifications.css">
+    <link rel="stylesheet" href="/resources/styles/footer.css">
+    <script src="https://kit.fontawesome.com/563ce4d2d7.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="body-grid">
+    <div class="it-header">
+        <div th:insert="~{header :: header}"></div>
+    </div>
+
+    <div class="it-main">
+        <main>
+            <section>
+                <h2 align="center">Заказ</h2>
+
+                <div class="order">
+                    <div class="order-item" th:each="product : ${products}">
+                        <img th:src="@{${'/resources/images/catalog/' + product.productName + '.png'}}"
+                             alt="Фото товара" width="150px" height="170px">
+
+                        <h2 class="product" th:text="${product.productName}"></h2>
+                        <div class="quantity" th:text="${product.quantity} + ' шт.'"></div>
+                        <div class="cost" th:text="${product.cost} + ' ₽'"></div>
+                    </div>
+
+                    <div class="cart-items" th:if="${#lists.isEmpty(products)}">
+                        <p>Корзина пустая</p>
+                    </div>
+                </div>
+
+                <div class="orderContainer" th:if="${#lists.isEmpty(products) == false}">
+                    <div class="orderSum">
+                        <h3 align="center">Итоговая стоимость</h3>
+                    </div>
+
+                    <div class="orderSum">
+                        <p th:text="${sum}"></p>
+                        <p>&nbsp;₽</p>
+                    </div>
+
+                    <div class="orderSum">
+                        <button class="purchase" onclick="sendRequest()">Оформить</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div class="it-sidebar">
+        <sidebar>
+        </sidebar>
+    </div>
+
+    <div class="it-aside">
+    </div>
+
+    <div class="it-footer">
+        <div th:insert="~{footer :: footer}"></div>
+    </div>
+
+    <script>
+        function sendRequest() {
+            var cookies = document.cookie;
+            document.cookie = "cartItems=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            window.location.href = '/getproducts?products=' + encodeURIComponent(cookies)
+        }
+    </script>
+</body>
+</html>

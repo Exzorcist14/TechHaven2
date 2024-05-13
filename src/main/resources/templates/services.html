@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initialscale=1.0">
+    <title>Услуги</title>
+    <link rel="icon" type="image/png" href="/resources/images/logo/ComputerFavicon.png">
+    <link rel="stylesheet" href="/resources/styles/style.css">
+    <link rel="stylesheet" href="/resources/styles/services.css">
+    <link rel="stylesheet" href="/resources/styles/notifications.css">
+    <link rel="stylesheet" href="/resources/styles/footer.css">
+    <script src="https://kit.fontawesome.com/563ce4d2d7.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="body-grid">
+    <div class="it-header">
+        <div th:insert="~{header :: header}"></div>
+    </div>
+
+    <div class="it-main">
+        <main>
+            <section>
+                <h2 align="center">Услуги</h2>
+
+                <div class="services-grid">
+                    <div class="card">
+                        <h2>Консультации по ПК</h2>
+                        <p>Экспертные советы по сборке или обновлению вашего ПК для достижения оптимальной производительности</p>
+                    </div>
+
+                    <div class="card">
+                        <h2>Ремонт аппаратных компонентов</h2>
+                        <p>Профессиональные услуги по ремонту неисправных аппаратных компонентов компьютера</p>
+                    </div>
+
+                    <div class="card">
+                        <h2>Индивидуальные сборки</h2>
+                        <p>Создайте свой идеальный ПК, соответствующий вашим потребностям</p>
+                    </div>
+
+                    <div class="card">
+                        <h2>Обновления</h2>
+                        <p>Обновите свою систему с использованием последних процессоров, видеокарт и других компонентов</p>
+                    </div>
+
+                    <div class="card">
+                        <h2>Восстановление данных</h2>
+                        <p>Восстановление потерянных или удаленных данных с жестких дисков и устройств хранения</p>
+                    </div>
+
+                    <div class="card">
+                        <h2>Установка программного обеспечения</h2>
+                        <p>Установка и настройка необходимого программного обеспечения для оптимальной производительности системы</p>
+                    </div>
+
+                    <div class="card">
+                        <h2>Оптимизация для игр</h2>
+                        <p>Оптимизация вашей игровой системы для бесперебойного и захватывающего игрового опыта</p>
+                    </div>
+
+                    <div class="card">
+                        <h2>Настройка сети</h2>
+                        <p>Профессиональная настройка сети для обеспечения стабильного и быстрого интернет-соединения</p>
+                    </div>
+
+                    <div class="card">
+                        <h2>Техническая поддержка</h2>
+                        <p>Круглосуточная техническая поддержка для решения любых проблем с вашим компьютером</p>
+                    </div>
+                </div>
+
+                <h3 align="center">Наш сотрудник за работой</h3>
+
+                <div>
+                    <img src="https://i.playground.ru/p/KhBJrare60QrTpA3yLAM6Q.png" alt="Член команды TechHaven" width="600" height="300">
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div class="it-sidebar">
+        <sidebar>
+        </sidebar>
+    </div>
+
+    <div class="it-aside">
+        <aside>
+        </aside>
+    </div>
+
+    <div class="it-footer">
+        <div th:insert="~{footer :: footer}"></div>
+    </div>
+</body>
+</html>

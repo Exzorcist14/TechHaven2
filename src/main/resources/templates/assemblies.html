@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initialscale=1.0">
+    <title>Сборки</title>
+    <link rel="icon" type="image/png" href="/resources/images/logo/ComputerFavicon.png">
+    <link rel="stylesheet" href="/resources/styles/style.css">
+    <link rel="stylesheet" href="/resources/styles/assemblies.css">
+    <link rel="stylesheet" href="/resources/styles/notifications.css">
+    <link rel="stylesheet" href="/resources/styles/footer.css">
+    <script src="https://kit.fontawesome.com/563ce4d2d7.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="body-grid">
+    <div class="it-header">
+        <div th:insert="~{header :: header}"></div>
+    </div>
+
+    <div class="it-main">
+        <main>
+            <section>
+                <h2 align="center">Готовые ПК</h2>
+
+                <div class="pc-card-container">
+                    <div class="pc-card">
+                        <img src="/resources/images/gallery/PC3.jpg" width="300px" height="225px" alt="PC Image">
+                        <h2>TechHaven Quantum Beast</h2>
+                        <p>Процессор:  Intel Core i9-10900K</p>
+                        <p>Графическая карта: NVIDIA GeForce RTX 3080</p>
+                        <p>Оперативная память:  32GB DDR4</p>
+                        <p>Хранилище: 1TB SSD</p>
+                        <p><br>Цена: 225 000 ₽</p>
+                    </div>
+
+                    <div class="pc-card">
+                        <img src="/resources/images/gallery/PC1.jpg" width="300px" height="225px" alt="PC Image">
+                        <h2>TechHaven Nova 1408</h2>
+                        <p>Процессор: Intel Core i9 13900K</p>
+                        <p>Графическая карта: NVIDIA GeForce RTX 4090</p>
+                        <p>Оперативная память: 32GB DDR5</p>
+                        <p>Хранилище: 1TB NVMe SSD + 2TB HDD</p>
+                        <p><br>Цена: 450 000 ₽</p>
+                    </div>
+
+                    <div class="pc-card">
+                        <img src="/resources/images/gallery/PC2.jpg" width="300px" height="225px" alt="PC Image">
+                        <h2>TechHaven Cyber Fusion</h2>
+                        <p>Процессор: AMD Ryzen 7 5800X</p>
+                        <p>Графическая карта: AMD Radeon RX 6800 XT</p>
+                        <p>Оперативная память: 16GB DDR4</p>
+                        <p>Хранилище: 1TB NVMe SSD</p>
+                        <p><br>Цена: 144 000 ₽</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div class="it-sidebar">
+        <sidebar>
+        </sidebar>
+    </div>
+
+    <div class="it-aside">
+        <aside>
+        </aside>
+    </div>
+
+    <div class="it-footer">
+        <div th:insert="~{footer :: footer}"></div>
+    </div>
+</body>
+</html>

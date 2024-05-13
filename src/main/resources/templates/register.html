@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <link rel="icon" type="image/png" href="/resources/images/logo/ComputerFavicon.png">
+    <link rel="stylesheet" href="/resources/styles/style.css">
+    <link rel="stylesheet" href="/resources/styles/authorization.css">
+    <link rel="stylesheet" href="/resources/styles/notifications.css">
+    <link rel="stylesheet" href="/resources/styles/icons.css">
+    <link rel="stylesheet" href="/resources/styles/footer.css">
+    <script src="https://kit.fontawesome.com/563ce4d2d7.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="body-grid">
+    <div class="it-header">
+        <div th:insert="~{header :: header}"></div>
+    </div>
+
+    <div class="it-main">
+        <main>
+            <section class="authorization-container">
+                <h2 align="center">Регистрация</h2>
+
+                <form method="POST" th:action="@{/register}" th:object="${user}">
+                    <div class="content_grid_form">
+                        <div class="item_1">
+                            <div class="inputbox">
+                                <input pattern="[A-Za-z]*" title="Только латинские буквы допустимы" type="text" id="username" name="username" th:field="*{name}" required>
+                                <span>Псевдоним</span>
+                                <i></i>
+                            </div>
+                        </div>
+
+                        <div class="item_1">
+                            <div class="inputbox">
+                                <input type="password" id="password" name="password" th:field="*{password}" required>
+                                <span>Пароль</span>
+                                <i></i>
+                            </div>
+                        </div>
+
+                        <div class="item_2">
+                            <div class="inputbox">
+                                <input type="password" id="confirm_password" name="confirmPassword" th:field="*{confirmPassword}" required>
+                                <span>Подтверждение пароля</span>
+                                <i></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="inputbox button3">
+                        <button type="submit">Регистрация</button>
+                    </div>
+
+                    <div th:if="${param.exists}" class="regError">
+                        Псевдоним занят
+                    </div>
+
+                    <div th:if="${param.error}" class="regError">
+                        Пароли не совпадают
+                    </div>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <div class="it-sidebar">
+        <sidebar>
+        </sidebar>
+    </div>
+
+    <div class="it-aside">
+        <aside>
+        </aside>
+    </div>
+
+    <div class="it-footer">
+        <div th:insert="~{footer :: footer}"></div>
+    </div>
+</body>
+</html>
