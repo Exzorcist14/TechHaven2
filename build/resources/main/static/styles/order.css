@@ -1,0 +1,97 @@
+.order {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 0px;
+    gap: 15px;
+}
+
+.orderContainer {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 0px;
+    gap: 7px;
+}
+
+.orderContainer h3 {
+    background: #4f4f4f;
+    border-radius: 15px;
+    width: 25%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+/*-----------------------------------------------------------*/
+
+.order-item {
+    display: grid;
+    grid-template-columns: auto 12fr 2fr;
+    grid-template-areas:
+    "img name quantity"
+    "img cost quantity";
+    gap: 15px;
+    align-items: center;
+    justify-items: center;
+    background: #727272;
+    width: 100%;
+    border-radius: 14px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    min-height: 175px;
+}
+
+.order-item > img {
+    grid-area: img;
+    padding-left: 15px;
+}
+
+.product {
+    grid-area: name;
+    background: #4f4f4f;
+    border-radius: 15px;
+    text-align: center;
+    width: 50%;
+    justify-self: center;
+    margin: 0;
+    padding: 5px 0 5px 0;
+    font-size: 18px;
+}
+
+.cost {
+    grid-area: cost;
+}
+
+.quantity {
+    grid-area: quantity;
+}
+
+.purchase {
+    grid-area: purchase;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    background: #565656;
+    color: #dedede;
+    font-family: 'Droid Sans Mono', cursive;
+    padding: 10px 25px 10px 25px;
+    border-radius: 15px;
+    transition: 0.35s;
+}
+
+.purchase:hover {
+    background: #939393;
+}
+
+.purchase {
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
+
+.orderSum {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+

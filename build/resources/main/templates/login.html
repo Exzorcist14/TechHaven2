@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initialscale=1.0">
+    <title>Авторизация</title>
+    <link rel="icon" type="image/png" href="/resources/images/logo/ComputerFavicon.png">
+    <link rel="stylesheet" href="/resources/styles/style.css">
+    <link rel="stylesheet" href="/resources/styles/authorization.css">
+    <link rel="stylesheet" href="/resources/styles/notifications.css">
+    <link rel="stylesheet" href="/resources/styles/icons.css">
+    <link rel="stylesheet" href="/resources/styles/footer.css">
+    <script src="https://kit.fontawesome.com/563ce4d2d7.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="body-grid">
+    <div class="it-header">
+        <div th:insert="~{header :: header}"></div>
+    </div>
+
+    <div class="it-main">
+        <main>
+            <section class="authorization-container">
+                <h2 align="center">Авторизация</h2>
+
+                <form name="f" method="POST" th:action="@{/login}" th:object="${user}">
+                    <div th:if="${param.error}" class="alert alert-error">
+                        Неправильное имя или пароль!
+                    </div>
+
+                    <div class="content_grid_form">
+                        <div class="item_1">
+                            <div class="inputbox">
+                                <input type="text" id="username" name="username"/>
+                                <span>Имя пользователя</span>
+                                <i></i>
+                            </div>
+                        </div>
+
+                        <div class="item_1">
+                            <div class="inputbox">
+                                <input type="password" id="password" name="password"/>
+                                <span>Пароль</span>
+                                <i></i>
+                            </div>
+                        </div>
+
+                        <div class="inputbox button1">
+                            <button type="submit">Вход</button>
+                        </div>
+
+                        <div class="inputbox button2">
+                            <button id="myButton">Регистрация</button>
+
+                            <script>
+                                document.getElementById("myButton").addEventListener("click", function(event){
+                                    event.preventDefault();
+                                    window.location.href = "/register";
+                                });
+                            </script>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <div class="it-sidebar">
+        <sidebar>
+        </sidebar>
+    </div>
+
+    <div class="it-aside">
+        <aside>
+        </aside>
+    </div>
+
+    <div class="it-footer">
+        <div th:insert="~{footer :: footer}"></div>
+    </div>
+</body>
+</html>

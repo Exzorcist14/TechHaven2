@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Аккаунт</title>
+    <link rel="icon" type="image/png" href="/resources/images/logo/ComputerFavicon.png">
+    <link rel="stylesheet" href="/resources/styles/style.css">
+    <link rel="stylesheet" href="/resources/styles/notifications.css">
+    <link rel="stylesheet" href="/resources/styles/index.css">
+    <link rel="stylesheet" href="/resources/styles/cards.css">
+    <link rel="stylesheet" href="/resources/styles/footer.css">
+    <link rel="stylesheet" href="/resources/styles/account.css">
+
+    <script src="https://kit.fontawesome.com/563ce4d2d7.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="body-grid">
+    <div class="it-header">
+        <div th:insert="~{header :: header}"></div>
+    </div>
+
+    <div class="it-main">
+        <main class="container">
+            <section>
+                <div class="top">
+                    <h2 align="center"><span th:text="${user.name}"></span></h2>
+                </div>
+
+                <div class="about">
+                    <img th:src="'/resources/images/account/' + ${user.name.substring(0,1).toUpperCase()} + '.png'" alt="Аватарка" class="accountImage" width="400" height="200">
+
+                    <div class="order-history">
+
+                        <h3 align="center">История заказов</h3>
+
+                        <ul class="order-list">
+                            <li class="order-item" th:each="order, orderIndex : ${user.orders}" th:id="'order-' + ${orderIndex.index}">
+
+                                <span class="order-number order-header" th:text="'Заказ №' + ${order.getOrderNum()}"
+                                    th:attr="data-order-index=${orderIndex.index}" th:onclick="toggleOrder(this)"></span>
+
+                                <ul class="product-list" th:id="'products-' + ${orderIndex.index}" style="display:none;">
+                                    <li class="product-item" th:each="product : ${order.products}">
+                                        <span th:text="${product.title}"></span>
+                                    </li>
+                                </ul>
+
+                            </li>
+
+                            <li class="order-item" th:if="${#lists.isEmpty(user.orders)}">
+                                <p>Заказы отсутствуют</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <script th:inline="javascript">
+                    function toggleOrder(element) {
+                        var orderIndex = element.getAttribute("data-order-index");
+                        var productsElement = document.getElementById('products-' + orderIndex);
+                        if (productsElement.style.display === "none") {
+                            productsElement.style.display = "block";
+                        } else {
+                            productsElement.style.display = "none";
+                        }
+                    }
+                </script>
+
+                <div>
+                    <a href="/logout" class="btn"><button>Выход</button></a>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div class="it-sidebar">
+        <sidebar>
+        </sidebar>
+    </div>
+
+    <div class="it-aside">
+        <aside>
+        </aside>
+    </div>
+
+    <div class="it-footer">
+        <div th:insert="~{footer :: footer}"></div>
+    </div>
+</body>
+</html>

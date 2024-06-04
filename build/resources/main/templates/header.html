@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+        <header class="header" th:fragment="header">
+            <div class="logo">
+                <img src="/resources/images/logo/ComputerLogo.png" alt="Логотип сайта" width="50" height="50">
+                <h1 id="Topic1" align="left">  <b id="content">TechHaven</b> </h1>
+            </div>
+
+            <div class="head">
+                <div class="notifications-container">
+                    <input type="checkbox" id="notifications-list" class = toggle>
+                    <label for="notifications-list" class="round-button">
+                        <img src="/resources/images/auxiliary/NotificationsLogo.png" width="45" height="45">
+                    </label>
+
+                    <div class="notifications-list">
+                        <div class="notifications-item">
+                            Вышла новая запись в блоге TechHaven
+                        </div>
+
+                        <div class="notifications-item">
+                            Сотрудники TechHaven протестировали новую сборку на GeForce RTX 4090 и Intel Core i9 13900K
+                        </div>
+
+                        <div class="notifications-item">
+                            В каталоге пополнение, не забудьте заглянуть!
+                        </div>
+
+                        <div class="notifications-item">
+                            Внимание! Сайт будет отключён 12.12.2023 в связи с техническим обслуживанием, но вскоре вновь заработает
+                        </div>
+                    </div>
+
+                    <div class="notifications-number">4</div>
+                    <script src="/resources/scripts/notifications.js"></script>
+                </div>
+
+                <input type="checkbox" id="checkbox_toggle">
+                <label for="checkbox_toggle" class="hamburger"><span class="hamburger-line"></span></label>
+                <nav>
+                    <a href="/index" >Главная</a>
+                    <a href="/blog">Блог</a>
+                    <a href="/assemblies">Сборки</a>
+                    <a href="/services">Услуги</a>
+                    <a href="/gallery">Галерея</a>
+                    <a href="/catalog">Магазин</a>
+                </nav>
+
+                <a sec:authorize="isAnonymous()" href="catalog" class="round-button"><img src="/resources/images/auxiliary/LoginLogo.png" width="45" height="45"></a>
+                <a sec:authorize="isAuthenticated()" href="/account" class="round-button"><img src="/resources/images/auxiliary/LoginLogo.png" width="45" height="45"></a>
+            </div>
+        </header>
+</body>
+</html>
